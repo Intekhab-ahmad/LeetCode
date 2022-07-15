@@ -9,6 +9,8 @@ public:
             
             if(i+1>maxreach)
                 return false;
+            if(maxreach>=nums.size())
+                return true;
             
             
         }
