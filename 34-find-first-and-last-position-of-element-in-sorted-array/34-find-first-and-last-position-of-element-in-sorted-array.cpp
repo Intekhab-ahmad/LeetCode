@@ -3,6 +3,11 @@ public:
     vector<int> searchRange(vector<int>& nums, int target) {
             
         vector<int> ans;
+        if(nums.size()==0){
+            ans.push_back(-1);
+            ans.push_back(-1);
+            return ans;
+        }
         ans.push_back(firstocc(nums,target));
         ans.push_back(lastocc(nums, target));
         
