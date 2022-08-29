@@ -4,11 +4,12 @@ public:
         
         int count=0;
         int n=nums.size();
-        for(int x=0; x<n; x++)
-        {   
-            if(nums[x] > nums[(x+1)%n])
-                count ++;
+        for(int i=1;i<nums.size();i++){
+            if(nums[i-1]>nums[i])
+                count++;
         }
-        return count<=1;
+        if(nums[n-1]>nums[0])
+            count++;
+        return count<=1?true:false;
     }
 };
