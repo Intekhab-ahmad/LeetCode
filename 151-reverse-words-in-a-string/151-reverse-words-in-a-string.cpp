@@ -4,7 +4,7 @@ public:
         stack<string> st;
         int n=s.length();
         
-        string str="";
+        string str;
         for(int i=0;i<n;i++){
             if(s[i]!=' '){
                 str=str+s[i];
