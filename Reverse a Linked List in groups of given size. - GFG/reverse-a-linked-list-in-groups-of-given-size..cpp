@@ -53,7 +53,7 @@ class Solution
     { 
         //base case
     if(head == NULL)
-        return NULL;
+        return head;
 
     //1 case -> first group of k nodes -> reverse
     node* prev = NULL;
