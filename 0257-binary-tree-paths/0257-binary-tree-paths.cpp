@@ -29,9 +29,10 @@ public:
     vector<string> binaryTreePaths(TreeNode* root) {
         
         vector<string> ans;
+        string str=to_string(root->val);
         if(root==NULL) return ans;
         
-        solve(ans,root,to_string(root->val));
+        solve(ans,root,str);
         return ans;
         
         
