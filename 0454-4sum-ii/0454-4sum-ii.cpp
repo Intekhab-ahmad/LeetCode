@@ -15,7 +15,7 @@ public:
             for(auto j:nums4){
                 auto it=mp.find(-(i+j));
                     if(it!=mp.end())
-                        ans=ans+it->second;
+                        ans=ans+it->second;   //to continue with duplicacy
             }
         }
         return ans;
