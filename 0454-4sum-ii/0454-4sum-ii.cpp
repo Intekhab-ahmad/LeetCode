@@ -1,27 +1,23 @@
 class Solution {
 public:
-    int fourSumCount(vector<int>& p, vector<int>& q, vector<int>& r, vector<int>& s) {
-        unordered_map<int, int> hash;
-        int n = p.size();
-        int ans = 0;
+    int fourSumCount(vector<int>& nums1, vector<int>& nums2, vector<int>& nums3, vector<int>& nums4) {
         
-        for(int i=0; i<n; i++) {
-            for(int j=0; j<n; j++) {
-                // Increment the hashtable at the sum of the pair
-                hash[p[i] + q[j]]++;
+        unordered_map<int,int> mp;
+        int ans=0;
+        
+        for(auto i:nums1){
+            for(auto j:nums2){
+                mp[i+j]++;
             }
         }
         
-        for(int i=0; i<n; i++) {
-            for(int j=0; j<n; j++) {
-                // Check if the negative of curr sum of the pair exists in the hash table. Then they will add upto zero. 
-                // i.e hash[p[w] + q[x]] + hash[r[y] + s[z]] == 0.
-                // But we dont want zero. We want no. of two touples. Hence we store the value in hashtable in ans. If it is present in hashtable it will get stored in ans, else it will get neglected cosidering it as a zero.
-                ans = ans + hash[-(r[i] + s[j])];
+        for(auto i:nums3){
+            for(auto j:nums4){
+                auto it=mp.find(-(i+j));
+                    if(it!=mp.end())
+                        ans=ans+it->second;
             }
         }
-        
         return ans;
-        
     }
 };
