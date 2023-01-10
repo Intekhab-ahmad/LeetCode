@@ -13,7 +13,6 @@ public:
         for(i=1;i<n;i++){
             if(nums[i][0]<=end){
                 end=max(end,nums[i][1]);
-                cout<<end<<endl;
             }
             else{
                 ans.push_back({start,end});
@@ -22,7 +21,7 @@ public:
             }
             
         }
-    cout<<start<<end<<i;
+   // cout<<start<<end<<i;
         if(i==n){
                 ans.push_back({start,end});
             }
