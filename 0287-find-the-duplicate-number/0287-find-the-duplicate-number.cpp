@@ -17,7 +17,6 @@ public:
     fast = nums[fast];
   }
         return slow;
-       return nums[0];
         
     }
 };
