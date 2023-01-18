@@ -17,13 +17,13 @@ public:
                 return true;
             else if (matrix[mid/n][mid%n]>target){
                 
-                e--;
+                e=mid-1;
             }
             
             else if (matrix[mid/n][mid%n]<target){
                 //move right
                 
-                s++;
+                s=mid+1;
                 
             }
             mid=s+(e-s)/2;
