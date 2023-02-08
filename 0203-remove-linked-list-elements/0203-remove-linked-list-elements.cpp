@@ -18,7 +18,7 @@ public:
         dummy->next=head;
         
         
-        ListNode* temp=dummy,*prev=NULL,*rem=NULL;
+        ListNode* temp=dummy,*rem=NULL;
         
         while(temp!=NULL && temp->next!=NULL){
             
