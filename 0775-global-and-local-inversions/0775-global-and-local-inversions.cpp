@@ -1,11 +1,11 @@
 class Solution {
 public:
     bool isIdealPermutation(vector<int>& A) {
-        
-        for(int i = 0; i < size(A); i++) 
-            if(abs(A[i] - i) > 1) 
-                return false;
-	    return true;
-        
+        int cmax = 0, n = A.size();
+        for (int i = 0; i < n - 2; ++i) {
+            cmax = max(cmax, A[i]);
+            if (cmax > A[i + 2]) return false;
+        }
+        return true;
     }
 };
