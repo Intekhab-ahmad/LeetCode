@@ -9,6 +9,7 @@ public:
         
         while(s<e){
             
+            //always move to the larger element to get peak valueand apply binary search
             if(nums[mid]>nums[mid+1]){
                 e=mid;
             }
