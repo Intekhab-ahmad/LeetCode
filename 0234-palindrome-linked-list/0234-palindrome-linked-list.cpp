@@ -24,23 +24,28 @@ public:
     
     bool isPalindrome(ListNode* head) {
         
-      if(head==NULL||head->next==NULL)
-            return true;
-        ListNode* slow=head;
-        ListNode* fast=head;
-        while(fast->next!=NULL&&fast->next->next!=NULL){
+        //finding the middle of linked list using slow and fast pointer approach
+         if(head==NULL || head->next==NULL) return true;
+        
+        ListNode *slow=head,*fast=head;
+        while(fast->next && fast->next->next){
             slow=slow->next;
             fast=fast->next->next;
         }
-        slow->next=rev  (slow->next);
+        slow->next=rev(slow->next);
         slow=slow->next;
-        while(slow!=NULL){
-            if(head->val!=slow->val)
-                return false;
-            head=head->next;
-            slow=slow->next;
+        fast=head;
+        cout<<slow->val;
+       while(slow != NULL){
+            if(slow->val != head->val) return false;
+            slow = slow->next;
+            head = head->next;
         }
-        return true;
+
+        
+            return true;
+        
+        
         
         
     }
