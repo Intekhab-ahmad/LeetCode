@@ -20,10 +20,7 @@ public:
     }
     ListNode *merge(ListNode *left,ListNode *right){
         
-        if(left==NULL)
-            return right;
-        else if(right==NULL)
-            return left;
+        
         
         
         ListNode *dummy=new ListNode(-1);
