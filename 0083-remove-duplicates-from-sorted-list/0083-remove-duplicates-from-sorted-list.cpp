@@ -20,7 +20,7 @@ public:
         ListNode* temp=head->next,*prev=head;
         
         
-        while(temp->next){
+        while(temp){
             
             if(prev->val!=temp->val){
                 temp=temp->next;
@@ -31,9 +31,7 @@ public:
                     temp=temp->next;
             }
         }
-        if(prev->val==temp->val){
-            prev->next=temp->next;
-        }
+       
         
         return head;
         
