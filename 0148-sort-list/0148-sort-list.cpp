@@ -10,35 +10,58 @@
  */
 class Solution {
 public:
+    ListNode *findmid(ListNode *head){
+        ListNode *slow=head,*fast=head->next;
+        while(fast && fast->next){
+            slow=slow->next;
+            fast=fast->next->next;
+        }
+        return slow;
+    }
+    ListNode *merge(ListNode *left,ListNode *right){
+        
+        if(left==NULL)
+            return right;
+        else if(right==NULL)
+            return left;
+        
+        
+        ListNode *dummy=new ListNode(-1);
+        ListNode *temp=dummy;
+        
+        while(left && right){
+            if(left->val<right->val){
+                temp->next=left;
+                left=left->next;
+            }
+            else{
+                temp->next=right;
+                right=right->next;
+            }
+            temp=temp->next;
+        }
+        temp->next=left ? left : right;
+        
+        return dummy->next;
+    }
     ListNode* sortList(ListNode* head) {
         
-        if(head==NULL) return head;
+        if(head==NULL || head->next==NULL) return head;
         
-        ListNode* temp=head;
+        ListNode *mid=findmid(head);
+        ListNode* left=head;
+        ListNode *right=mid->next;
+        mid->next=NULL;
         
-        vector<int> list;
+        //recursive calls to sort the list
+        left=sortList(left);
+        right=sortList(right);
         
-        while(temp->next!=NULL){
-            list.push_back(temp->val);
-            temp=temp->next;
-        }
-        list.push_back(temp->val);
-        temp=NULL;
+        //now merging both the sorted list into a single list
         
-        sort(list.begin(),list.end());
-        int n=list.size();
-        ListNode* newnode=new ListNode(list[0],NULL);
-        temp=newnode;
-        head=temp;
-        for(int i=1;i<n;i++){
-            
-            ListNode* newnode=new ListNode(list[i],NULL);
-            temp->next=newnode;
-            temp=temp->next;
-        }
-        return head;
+        ListNode *result=merge(left,right);
         
-        
+        return result;
         
     }
 };
