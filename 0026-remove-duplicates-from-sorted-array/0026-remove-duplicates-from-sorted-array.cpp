@@ -2,18 +2,20 @@ class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
         
-        map<int,int> mp;
+        int i=0,j=1;
+        while(j<nums.size()){
+            if(nums[i]==nums[j]){
+                j++;
+                
+            }
+            else{
+                i++;
+                nums[i]=nums[j];
+                j++;
+            }
+        }
         
-        for(auto i:nums)
-            mp[i]++;
-        
-        
-        cout<<mp.size();
-        nums.clear();
-        
-        for(auto i:mp)
-            nums.push_back(i.first);
-        return mp.size();
+        return i+1; 
         
     }
 };
